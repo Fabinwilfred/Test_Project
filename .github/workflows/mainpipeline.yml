@@ -15,7 +15,7 @@ jobs:
     steps:
       # Checkout the repository code
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       # Set up permissions for the repository files
       - name: Set up permissions
@@ -28,9 +28,9 @@ jobs:
           docker pull ghcr.io/zaproxy/zaproxy:stable
           docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap.sh -cmd -autorun /zap/wrk/zap.yml || true
 
-      # Upload the scan report as an artifact
+      # Upload the scan report as an artifact (Updated to v3)
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: zap-report
           path: /zap/wrk/
