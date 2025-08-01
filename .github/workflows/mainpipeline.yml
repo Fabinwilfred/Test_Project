@@ -28,9 +28,9 @@ jobs:
           docker pull ghcr.io/zaproxy/zaproxy:stable
           docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap.sh -cmd -autorun /zap/wrk/zap.yml || true
 
-      # Upload the scan report as an artifact (Updated to v3)
+      # Upload the scan report as an artifact (Updated to v4)
       - name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: zap-report
           path: /zap/wrk/
