@@ -1,0 +1,17 @@
+# zap.yml - OWASP ZAP configuration file
+
+zap:
+  # URL to be scanned (public website for demo)
+  target: "http://example.com"  # Change this to the target URL you want to scan
+  
+  # Configuration for the ZAP scan
+  scan:
+    enabled: true
+    apiKey: "your_zap_api_key_here"  # Optional, if you have an API key for ZAP
+    level: "High"  # Set the scan level (Low, Medium, High)
+  
+  # Optional: Add specific context if needed
+  context:
+    - name: "Demo Context"
+      url: "http://example.com"  # This matches the URL you set above
+      includeRegex: ".*"  # Regex to match URLs for the scan
